@@ -114,13 +114,7 @@ function App() {
         </div>
       </section>
 
-      <section className="overflow-hidden border-y border-[#ddd5c6] bg-[#eee8da] py-4" aria-label="Our guiding principles">
-        <div className="ticker flex w-max items-center gap-9 whitespace-nowrap text-[#40584a]">
-          {[0, 1].map((copy) => <div key={copy} className="flex items-center gap-9 px-2">
-            {['Good food, close by', 'A fair price for a lovely meal', 'Surplus shared with care', 'Rooted in local kitchens', 'No guilt. Just good sense.'].map((phrase) => <span key={phrase} className="inline-flex items-center gap-9 text-[11px] font-bold uppercase tracking-[.12em]"><span>{phrase}</span><span className="h-1.5 w-1.5 rounded-full bg-[#bb6c52]" /></span>)}
-          </div>)}
-        </div>
-      </section>
+      
 
       <section id="discover" className="scroll-mt-8 py-24 sm:py-28">
         <div className="page-wrap">
