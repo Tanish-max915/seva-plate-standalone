@@ -4,10 +4,10 @@ import { ArrowDown, ArrowDownRight, ArrowLeft, ArrowRight, ArrowUpRight, Check, 
 type Meal = { id: number; title: string; shop: string; area: string; category: string; price: string; original: string; time: string; tint: string; image: string; note: string };
 
 const meals: Meal[] = [
-  { id: 1, title: 'Market bowl, end-of-day', shop: 'Juniper & Rye', area: 'East Village', category: 'Bowls', price: '$8', original: '$16', time: 'Pickup window · 6:30–7:30 pm', tint: '#e7b96c', image: '/seva-hero.jpg', note: 'Roasted vegetables, herbed grains, lemon tahini. A generous bowl made with what looked best at the market today.' },
-  { id: 2, title: 'The little bakery bundle', shop: 'Daybreak Bakehouse', area: 'North Park', category: 'Bakery', price: '$6', original: '$12', time: 'Pickup window · 5:00–6:00 pm', tint: '#c98769', image: '/seva-hero.jpg', note: 'A little of everything from today’s bake: naturally leavened bread, a pastry, and something sweet.' },
-  { id: 3, title: 'Supper for one', shop: 'Saffron Table', area: 'Old Town', category: 'Dinner', price: '$9', original: '$18', time: 'Pickup window · 7:00–8:00 pm', tint: '#9a9d64', image: '/seva-hero.jpg', note: 'A rotating, home-style dinner from the Saffron Table kitchen. Thoughtful, filling, and ready for the evening.' },
-  { id: 4, title: 'Garden focaccia & sides', shop: 'Olive Street Kitchen', area: 'East Village', category: 'Bakery', price: '$7', original: '$14', time: 'Pickup window · 4:30–5:30 pm', tint: '#a76e53', image: '/seva-hero.jpg', note: 'A slice of garden focaccia with two seasonal sides. Each bundle is a little different.' },
+  { id: 1, title: 'Market bowl, end-of-day', shop: 'Juniper & Rye', area: 'East Village', category: 'Bowls', price: '₹80', original: '₹120', time: 'Pickup window · 6:30–7:30 pm', tint: '#e7b96c', image: '/seva-hero.jpg', note: 'Roasted vegetables, herbed grains, lemon tahini. A generous bowl made with what looked best at the market today.' },
+  { id: 2, title: 'The little bakery bundle', shop: 'Daybreak Bakehouse', area: 'North Park', category: 'Bakery', price: '₹75', original: '₹135', time: 'Pickup window · 5:00–6:00 pm', tint: '#c98769', image: '/seva-hero.jpg', note: 'A little of everything from today’s bake: naturally leavened bread, a pastry, and something sweet.' },
+  { id: 3, title: 'Supper for one', shop: 'Saffron Table', area: 'Old Town', category: 'Dinner', price: '₹82', original: '₹140', time: 'Pickup window · 7:00–8:00 pm', tint: '#9a9d64', image: '/seva-hero.jpg', note: 'A rotating, home-style dinner from the Saffron Table kitchen. Thoughtful, filling, and ready for the evening.' },
+  { id: 4, title: 'Garden focaccia & sides', shop: 'Olive Street Kitchen', area: 'East Village', category: 'Bakery', price: '₹65', original: '₹110', time: 'Pickup window · 4:30–5:30 pm', tint: '#a76e53', image: '/seva-hero.jpg', note: 'A slice of garden focaccia with two seasonal sides. Each bundle is a little different.' },
 ];
 
 const categories = ['Everything', 'Bowls', 'Bakery', 'Dinner'];
@@ -151,7 +151,6 @@ function App() {
               <div className="relative h-[198px] overflow-hidden" style={{ backgroundColor: meal.tint }}>
                 <img src={meal.image} alt="" className="meal-photo h-full w-full object-cover" style={{ objectPosition: `${22 + meal.id * 14}% center`, filter: `hue-rotate(${meal.id * 17}deg) saturate(.82)` }} />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#25392b]/25 to-transparent" />
-                <span className="absolute left-3.5 top-3.5 rounded-full bg-[#f8f4e9]/95 px-3 py-1.5 text-[9px] font-bold uppercase tracking-[.11em] text-[#37513f]">Demo find</span>
                 <button onClick={() => setSaved((current) => current.includes(meal.id) ? current.filter((id) => id !== meal.id) : [...current, meal.id])} aria-label={saved.includes(meal.id) ? `Unsave ${meal.title}` : `Save ${meal.title}`} className={`absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full backdrop-blur transition ${saved.includes(meal.id) ? 'bg-[#b8664e] text-white' : 'bg-[#fbf8ef]/90 text-[#385342] hover:bg-white'}`} data-testid={`button-save-meal-${meal.id}`}><Heart size={16} fill={saved.includes(meal.id) ? 'currentColor' : 'none'} /></button>
               </div>
               <div className="p-4">
@@ -189,7 +188,7 @@ function App() {
                 { n: '03', icon: <Heart size={18} />, title: 'Keep food moving', text: 'Restaurants can share suitable surplus with local organizations, too.' },
               ].map((step) => <article key={step.n} className="flex min-h-[230px] flex-col rounded-[16px] border border-[#d7d0c1] bg-[#f6f2e8] p-5">
                 <div className="flex items-center justify-between"><span className="eyebrow text-[9px] text-[#b8664e]">STEP {step.n}</span><span className="text-[#385744]">{step.icon}</span></div>
-                <h3 className="serif mt-auto pt-8 text-[24px] leading-[1.08]">{step.title}</h3>
+                <h3 className="serif mt-1 pt-8 text-[32px] leading-[1.08]">{step.title}</h3>
                 <p className="mt-2 text-[11px] leading-[1.65] text-[#747a6d]">{step.text}</p>
               </article>)}
             </div>
@@ -285,7 +284,7 @@ function App() {
       <div className="relative my-auto w-full max-w-[510px] rounded-[24px] border border-[#e0d9ca] bg-[#f8f5ec] p-6 shadow-[0_24px_80px_rgba(14,32,23,.28)] sm:p-9" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
         <button onClick={() => setModal(null)} aria-label="Close dialog" className="absolute right-5 top-5 grid h-9 w-9 place-items-center rounded-full border border-[#d9d2c4] hover:bg-[#eee8da]" data-testid="button-close-dialog"><X size={17} /></button>
         {modal === 'partner' ? submitted ? <div className="py-7 text-center" data-testid="partner-success">
-          <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-[#dce6d7] text-[#315742]"><Check size={25} /></span><h2 id="dialog-title" className="serif mt-5 text-[34px] tracking-[-.04em]">Thanks for raising a hand.</h2><p className="mx-auto mt-3 max-w-[340px] text-[13px] leading-[1.7] text-[#667365]">This demo doesn’t send messages or arrange donations—but your interest is a meaningful first step.</p><button onClick={() => setModal(null)} className="mt-6 rounded-full bg-[#244a3a] px-6 py-3 text-xs font-bold text-white" data-testid="button-dismiss-success">Back to Seva Plate</button>
+          <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-[#dce6d7] text-[#315742]"><Check size={25} /></span><h2 id="dialog-title" className="serif mt-5 text-[34px] tracking-[-.04em]">Thanks for raising a hand.</h2><p className="mx-auto mt-3 max-w-[340px] text-[13px] leading-[1.7] text-[#667365]">Our team will verify your restaurant in about 48-72 hrs.</p><button onClick={() => setModal(null)} className="mt-6 rounded-full bg-[#244a3a] px-6 py-3 text-xs font-bold text-white" data-testid="button-dismiss-success">Back to Seva Plate</button>
         </div> : <div>
           <SectionLabel>LET’S MAKE A LOCAL CONNECTION</SectionLabel>
           <h2 id="dialog-title" className="serif mt-3 pr-8 text-[35px] leading-[1.02] tracking-[-.045em]">Good surplus?<br /><span className="italic text-[#b8664e]">Let’s talk it through.</span></h2>
